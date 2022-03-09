@@ -80,7 +80,7 @@ class Jettywrapper
       FileUtils.mkdir tmp_dir unless File.exists? tmp_dir
 
       begin
-        open(self.url) do |io|
+        URI.open(self.url) do |io|
           IO.copy_stream(io,zip_file)
         end
       rescue Exception => e
